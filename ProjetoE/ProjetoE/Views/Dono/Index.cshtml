@@ -1,0 +1,33 @@
+﻿@model IEnumerable<ProjetoE.Models.dono>
+
+@{
+    ViewBag.Title = "Dono";
+}
+
+<h2>Donos dos Cães</h2>
+
+<p>
+    @Html.ActionLink("Adicionar Dono", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.ID_Dono }) |
+            @Html.ActionLink("Detalhes", "Details", new { id=item.ID_Dono }) |
+            @Html.ActionLink("Deletar", "Delete", new { id=item.ID_Dono })
+        </td>
+    </tr>
+}
+
+</table>
